@@ -10,7 +10,7 @@ DEV_DB="ShopDBDevelopment"
 BACKUP_DIR="/var/backups/mysql"
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 
-mkdir -p ${BACKUP_DIR}
+mkdir -p "${BACKUP_DIR}"
 mysqldump -u "${DB_USER}" -p"${DB_PASSWORD}" --databases ${SOURCE_DB} > ${BACKUP_DIR}/${SOURCE_DB}_backup_${TIMESTAMP}.sql
 
 mysql -u "${DB_USER}" -p"${DB_PASSWORD}" ${BACKUP_DB} < ${BACKUP_DIR}/${SOURCE_DB}_backup_${TIMESTAMP}.sql
